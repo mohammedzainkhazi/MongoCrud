@@ -1,5 +1,5 @@
 var client = require('mongodb').MongoClient;
-const uri = 'mongodb+srv://Rootmongodb14:Rootdb@firsttest.dzer3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://Rootmongodb14:<PASS>@firsttest.dzer3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
 client.connect(uri, function(err, db) {
     if (err) throw err;
@@ -29,6 +29,10 @@ client.connect(uri, function(err, db) {
                 console.log("Error Deleting "+coll+" Check if it exists in Db.");
             }            
         });
+    }
+     
+    function update(prev,toBe){
+        dbo.collection('zain').update({prev},$set({toBe}));
     }
 
     async function close(){
